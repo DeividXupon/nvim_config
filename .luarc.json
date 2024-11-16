@@ -1,0 +1,11 @@
+{
+    "diagnostics.disable": [
+        "undefined-global"
+    ],
+    "diagnostics.globals": [
+        "vim",
+        "_ati_xbot",
+        "_ati_basic",
+        "_ati_lazygit"
+    ]
+}
