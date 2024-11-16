@@ -44,7 +44,7 @@ return {
 
         --basic
         local basic = Terminal:new({
-            cmd = "bash",
+            cmd = "zsh",
             direction = "horizontal",
             float_opts = { border = "curved", title_pos = "center" },
             on_open = function(term)
