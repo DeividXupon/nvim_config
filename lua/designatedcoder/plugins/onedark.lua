@@ -1,7 +1,7 @@
 return {
-    "dracula/vim",
+    "ellisonleao/gruvbox.nvim",
     config = function()
-        -- Habilitar o tema Dracula
-        vim.cmd("colorscheme dracula")
+        vim.cmd("set background=dark")
+        vim.cmd("colorscheme gruvbox")
     end,
 }
