@@ -10,9 +10,6 @@ vim.g.dbs = {
 vim.o.background = "dark"
 
 vim.opt.number = true
-vim.opt.relativenumber = true
-
-vim.opt.wrap = false
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
