@@ -1,0 +1,20 @@
+create table `blogs_list` (
+    `id` int(11) not null auto_increment primary key,
+    `link_bank` varchar(155) not null,
+    `name` varchar(50) not null,
+    `active` tinyint(1) not null default '0',
+    `category` varchar(50) not null,
+    `method` varchar(50) not null,
+    `created_at` timestamp not null default current_timestamp,
+    `updated_at` timestamp not null default current_timestamp on update current_timestamp
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `blogs_list` ADD COLUMN `language` varchar(50) NOT NULL DEFAULT 'pt-BR';    
+
+ALTER TABLE `blogs_list` CHANGE `link_bank` `url` varchar(155) NOT NULL;
+
+ALTER TABLE `blogs_list` CHANGE `language` `lang` varchar(50) NOT NULL;
+
+ALTER TABLE `blogs_list` MODIFY `category` VARCHAR(155) NULL;
+
+ALTER TABLE `blogs_list` RENAME TO `web_scraping`

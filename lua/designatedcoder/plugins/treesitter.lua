@@ -9,6 +9,7 @@ return {
             vim.list_extend(opts.ensure_installed, {
                 "blade",
                 "php_only",
+                "json",
             })
         end,
         dependencies = {
@@ -17,6 +18,7 @@ return {
             "nvim-treesitter/nvim-treesitter-textobjects",
             "nvim-treesitter/nvim-treesitter-context",
             "LiadOz/nvim-dap-repl-highlights",
+            "tree-sitter/tree-sitter-json",
         },
         config = function(_, opts)
             vim.filetype.add({
@@ -44,7 +46,6 @@ return {
 
                 ensure_installed = {
                     "c",
-                    "json",
                     "typescript",
                     "lua",
                     "vim",

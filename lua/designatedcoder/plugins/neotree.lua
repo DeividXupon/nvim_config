@@ -11,10 +11,9 @@ return {
             vim.g.leaded_newtrw = 1
             vim.g.loaded_newtrPlugin = 1
 
-
             require("nvim-tree").setup({
                 view = {
-                    width = 35,
+                    width = 40,
                     relativenumber = true,
                 },
                 renderer = {
@@ -23,20 +22,20 @@ return {
                             default = "",
                             symlink = "",
                             folder = {
-                                default = "",
-                                open = "",
-                                empty = "",
-                                empty_open = "",
+                                default = "",
+                                open = "󱞊",
+                                empty = "󱞞",
+                                empty_open = "",
                                 symlink = "",
                             },
                             git = {
-                                unstaged = "✹",
-                                staged = "✓",
+                                unstaged = "󰕚",
+                                staged = "",
                                 unmerged = "",
-                                renamed = "➜",
-                                untracked = "★",
-                                deleted = "",
-                                ignored = "◌",
+                                renamed = "󰑕",
+                                untracked = "",
+                                deleted = "",
+                                ignored = "",
                             },
                         },
                     },
@@ -74,6 +73,5 @@ return {
         end,
         vim.keymap.set('n', '<leader>et', '<cmd>NvimTreeToggle<CR>', { desc = "Toggle file explore" }),
         vim.keymap.set('n', '<leader>er', '<cmd>NvimTreeRefresh<CR>', { desc = "Refresh file explorer" }),
-        vim.keymap.set('n', '<leader>ec', '<cmd>NvimTreeRefresh<CR>', { desc = "Collapse file explore" })
     }
 }

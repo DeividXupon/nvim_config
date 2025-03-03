@@ -1,0 +1,11 @@
+
+INSERT INTO blogs_list (id, name, url, active, category, method, `language`) VALUES
+(1, 'Cripto Facil', 'https://www.criptofacil.com/', 1, NULL, 'WordPressApi', 'pt-BR'),
+(2, 'Cointimes', 'https://cointimes.com.br/', 1, NULL, 'WordPressApi', 'pt-BR'),
+(3, 'Bit Noticias', 'https://bitnoticias.com.br', 1, NULL, 'WordPressApi', 'pt-BR'),
+(4, 'Guia do Investidor', 'https://guiadoinvestidor.com.br', 1, 'criptomoedas', 'WordPressApi', 'pt-BR'),
+(5, 'Cointelegraph', 'https://cointelegraph.com', 1, NULL, 'feed', 'en'),
+(6, 'News BTC', 'https://www.newsbtc.com', 1, NULL, 'WordPressApi', 'en'),
+(7, 'Bolha Crypto', 'https://bolhacrypto.com', 1, NULL, 'WordPressApi', 'pt-BR'),
+(8, 'Brasil Bitcoin', 'https://brasilbitcoin.com.br/blog', 1, NULL, 'WordPressApi', 'pt-BR'),
+(9, 'Cripto Narotina', 'https://criptonarotina.com.br', 1, NULL, 'WordPressApi', 'pt-BR');
