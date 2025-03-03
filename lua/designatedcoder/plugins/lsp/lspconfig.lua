@@ -1,3 +1,8 @@
+local function is_wsl()
+    local output = vim.fn.systemlist("uname -r")
+    return output[1] and output[1]:find("WSL") ~= nil
+end
+
 return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
@@ -6,13 +11,16 @@ return {
         { "antosha417/nvim-lsp-file-operations", config = true },
     },
 
-    config = function(_, opts)          
+    config = function(_, opts)
+        local is_wsl = is_wsl();
         local lspconfig = require('lspconfig')
-        
-        if opts.servers then
-            for server, config in pairs(opts.servers) do
-                config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-                lspconfig[server].setup(config)
+
+        if not is_wsl then
+            if opts.servers then
+                for server, config in pairs(opts.servers) do
+                    config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+                    lspconfig[server].setup(config)
+                end
             end
         end
         -- import cmp-nvim-lsp plugin
@@ -65,8 +73,12 @@ return {
             keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
         end
 
-        -- used to enable autocompletion (assign to every lsp server config)
-        local capabilities = require('blink.cmp').get_lsp_capabilities()
+        if not is_wsl then
+            -- used to enable autocompletion (assign to every lsp server config)
+            local capabilities = require('blink.cmp').get_lsp_capabilities()
+        else
+            local capabilities = cmp_nvim_lsp.default_capabilities();
+        end
 
         -- Change the Diagnostic symbols in the sign column (gutter)
         -- (not in youtube nvim video)
