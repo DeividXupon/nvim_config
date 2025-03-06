@@ -15,13 +15,9 @@ return {
         end,
     },
     {
-        "uga-rosa/ccc.nvim",
+        'KabbAmine/vCoolor.vim',
         config = function()
-            require("ccc").setup({
-                -- Adicione aqui as configurações desejadas para o ccc.nvim
-            })
-            -- Mapeamento de tecla para ativar o ccc.nvim
-            vim.api.nvim_set_keymap('n', '<leader>cp', '<cmd>CccPick<cr>', { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', '<leader>cp', '<cmd>VCoolor<cr>', { noremap = true, silent = true })
         end,
     }
 }

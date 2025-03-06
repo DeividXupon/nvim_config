@@ -12,13 +12,13 @@ return {
     },
 
     config = function(_, opts)
-        local is_wsl = is_wsl();
-        local lspconfig = require('lspconfig')
+        local is_wsl = is_wsl()
+        local lspconfig = require("lspconfig")
 
         if not is_wsl then
             if opts.servers then
                 for server, config in pairs(opts.servers) do
-                    config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+                    config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
                     lspconfig[server].setup(config)
                 end
             end
@@ -73,11 +73,12 @@ return {
             keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
         end
 
+        local capabilities
         if not is_wsl then
             -- used to enable autocompletion (assign to every lsp server config)
-            local capabilities = require('blink.cmp').get_lsp_capabilities()
+            capabilities = require("blink.cmp").get_lsp_capabilities()
         else
-            local capabilities = cmp_nvim_lsp.default_capabilities();
+            capabilities = cmp_nvim_lsp.default_capabilities()
         end
 
         -- Change the Diagnostic symbols in the sign column (gutter)
@@ -87,11 +88,11 @@ return {
             local hl = "DiagnosticSign" .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
-
         -- configure html server
         lspconfig["html"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
+            filetypes = { "html", "javascript", "typescriptreact", "blade" },
         })
 
         -- configure typescript server with plugin
@@ -116,6 +117,7 @@ return {
         lspconfig["emmet_language_server"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
+            filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "blade" },
         })
 
         lspconfig["phpactor"].setup({

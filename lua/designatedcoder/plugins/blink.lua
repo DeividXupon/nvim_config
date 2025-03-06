@@ -31,6 +31,7 @@ if is_wsl() then
             require("luasnip").filetype_extend("php", { "blade" })
             -- require'luasnip'.filetype_extend("php", {"css"})
             require("luasnip").filetype_extend("vue", { "html" })
+            require("luasnip").filetype_extend("blade", { "html", "javascript", "css" })
 
             cmp.setup({
                 completion = {
@@ -64,11 +65,30 @@ if is_wsl() then
                         ellipsis_char = "...",
                     }),
                 },
+                enabled = function()
+                    local buftype = vim.api.nvim_buf_get_option(0, "buftype")
+                    if buftype == "prompt" then
+                        return false
+                    end
+
+                    local filetype = vim.bo.filetype
+                    if filetype == "blade" then
+                        local cursor_pos = vim.api.nvim_win_get_cursor(0)
+                        local row = cursor_pos[1]
+                        local line = vim.api.nvim_buf_get_lines(0, row - 1, row, false)[1] or ""
+
+                        -- Ativa para blocos <script> e <style>
+                        if line:match("<script") or line:match("<style") then
+                            return true
+                        end
+                    end
+
+                    return true
+                end,
             })
         end,
     }
 end
-
 return {
     "saghen/blink.cmp",
     enabled = true,
@@ -82,6 +102,9 @@ return {
         "Kaiser-Yang/blink-cmp-dictionary",
     },
     opts = function(_, opts)
+        opts.fuzzy = {
+            implementation = "lua"
+        }
         -- I noticed that telescope was extremeley slow and taking too long to open,
         -- assumed related to blink, so disabled blink and in fact it was related
         -- :lua print(vim.bo[0].filetype)

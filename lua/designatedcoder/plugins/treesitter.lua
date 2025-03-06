@@ -4,7 +4,7 @@ return {
         cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
         build = ":TSUpdate",
         opts = function(_, opts)
-            opts = opts or {} -- Initialize opts as an empty table if nil
+            opts = opts or {}                                   -- Initialize opts as an empty table if nil
             opts.ensure_installed = opts.ensure_installed or {} -- Ensure it's a table
             vim.list_extend(opts.ensure_installed, {
                 "blade",
@@ -41,7 +41,10 @@ return {
             require("nvim-treesitter.configs").setup({
 
                 auto_install = true,
-                highlight = { enable = true },
+                highlight = {
+                    enable = true,
+                    additional_vim_regex_highlighting = false,
+                },
                 indent = { enable = true },
 
                 ensure_installed = {
@@ -58,15 +61,23 @@ return {
                     "scss",
                     "vue",
                     "phpdoc",
+                    "json",
+                    "blade",
+                },
+                autotag = {
+                    enable = true,
+                },
+                endwise = {
+                    enable = true,
                 },
 
                 incremental_selection = {
                     enable = true,
                     keymaps = {
-                        init_selection = "<leader>ss",
-                        node_incremental = "<leader>si",
-                        scope_incremental = "<leader>sc",
-                        node_decremental = "<leader>sd",
+                        init_selection = "<leader>ss",    -- seleciona a palavra
+                        node_incremental = "<leader>si",  -- seleciona o bloco
+                        scope_incremental = "<leader>sc", -- seleciona o escopo
+                        node_decremental = "<leader>sd",  -- deseleciona o bloco
                     },
                 },
 
