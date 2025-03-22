@@ -1,10 +1,20 @@
 return {
     {
+        'navarasu/onedark.nvim',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require('onedark').setup {
+                style = 'warm',
+            }
+            require('onedark').load()
+        end
+    },
+    {
         "Mofiqul/dracula.nvim",
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd("colorscheme dracula")
         end,
     },
 }

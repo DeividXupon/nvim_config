@@ -30,15 +30,16 @@ return {
                 "ts_ls",
                 "html",
                 "cssls",
-                "tailwindcss",
                 "lua_ls",
                 "emmet_language_server",
                 "phpactor",
                 "volar",
                 "intelephense",
                 "jsonls",
-                "stimulus_ls",
                 "pylsp",
+                "dockerls",
+                "yamlls",
+                "bashls",
             },
             -- auto-install configured servers (with lspconfig)
             automatic_installation = true, -- not the same as ensure_installed

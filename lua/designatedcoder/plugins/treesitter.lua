@@ -48,18 +48,13 @@ return {
                 indent = { enable = true },
 
                 ensure_installed = {
-                    "c",
                     "typescript",
                     "lua",
-                    "vim",
-                    "vimdoc",
                     "query",
                     "javascript",
                     "php",
                     "html",
                     "css",
-                    "scss",
-                    "vue",
                     "phpdoc",
                     "json",
                     "blade",

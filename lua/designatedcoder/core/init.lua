@@ -5,14 +5,15 @@ vim.g.dbs = {
     b8safe = vim.env.DB_URL_B8SAFE,
     b8especialist = vim.env.DB_URL_ESPECIALIST,
     bbcdev = vim.env.DB_URL_BBCDEV,
+    railways = vim.env.DB_URL_RAILWAY,
 }
 
-vim.opt.fillchars:append({ eob = " " })
+vim.opt.fillchars:append({ eob = "~" })
 
 vim.filetype.add({
-  extension = {
-    ['http'] = 'http',
-  },
+    extension = {
+        ["http"] = "http",
+    },
 })
 
 vim.wo.relativenumber = true
@@ -24,6 +25,7 @@ vim.o.foldlevel = 99
 vim.o.background = "dark"
 
 vim.o.swapfile = false
+vim.opt.wrap = false
 
 vim.opt.fixendofline = false
 
@@ -47,7 +49,3 @@ vim.opt.inccommand = "split"
 vim.opt.ignorecase = true
 
 vim.opt.termguicolors = true
-
-
--- Apply the custom highlight group to the Snacks picker
-vim.api.nvim_set_hl(0, 'SnacksPickerMatch', { fg = '#47db6d', bg = '' })

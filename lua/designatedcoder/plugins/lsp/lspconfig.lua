@@ -99,55 +99,69 @@ return {
         lspconfig["ts_ls"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
+            filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" }, -- Restringe ao TS/JS
         })
 
         -- configure css server
         lspconfig["cssls"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
-        })
-
-        -- configure tailwindcss server
-        lspconfig["tailwindcss"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
+            filetypes = { "css", "scss", "less" }, -- Restringe ao CSS/SCSS/Less
         })
 
         -- configure emmet language server
-        lspconfig["emmet_language_server"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "blade" },
-        })
+        -- lspconfig["emmet_language_server"].setup({
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        --     filetypes = { "blade" },
+        -- })
 
         lspconfig["phpactor"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
+            filetypes = { "php" }, -- Restringe ao PHP
         })
 
         lspconfig["intelephense"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
+            filetypes = { "php" }, -- Restringe ao PHP
         })
 
         lspconfig["volar"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
+            filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" }, -- Restringe ao Vue e JS/TS
         })
 
         lspconfig["jsonls"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
-        })
-
-        lspconfig["stimulus_ls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
+            filetypes = { "json", "jsonc" }, -- Restringe ao JSON
         })
 
         lspconfig["pylsp"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
+            filetypes = { "python" }, -- Restringe ao Python
+        })
+
+        lspconfig["dockerls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            filetypes = { "dockerfile" }, -- Restringe ao Dockerfile
+        })
+
+        lspconfig["yamlls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            filetypes = { "yaml", "yml" }, -- Restringe ao YAML
+        })
+
+        lspconfig["bashls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            filetypes = { "sh", "bash" }, -- Restringe ao Shell Script
         })
 
         -- configure lua server (with special settings)

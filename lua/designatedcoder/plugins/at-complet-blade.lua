@@ -12,6 +12,7 @@ return {
                 inoremap <silent><expr> <C-h> coc#pum#confirm()
                 inoremap <silent><expr> <C-j> coc#pum#next(1)
                 inoremap <silent><expr> <C-k> coc#pum#prev(1)
+                inoremap <silent><expr> <C-K> coc#refresh()
             ]])
         end,
     },

@@ -1,6 +1,13 @@
 return {
     {
         "sindrets/diffview.nvim",
+        keys = {
+            { "<leader>hg",  "<cmd>DiffviewFileHistory<cr>", desc = "history git commits files" },
+            { "<leader>gdo", "<cmd>DiffviewOpen<cr>",        desc = "compare diff in files git" },
+            { "<leader>gdm", "<cmd>DiffviewOpen master<cr>",        desc = "compare diff in master" },
+            { "<leader>gdc", "<cmd>DiffviewClose<cr>",       desc = "close compare diff in files git" },
+            { "<leader>gdr", "<cmd>DiffviewRefresh<cr>",     desc = "refresh compare diff in files git" },
+        },
     },
     {
         "lewis6991/gitsigns.nvim",
@@ -48,5 +55,8 @@ return {
                 map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk")
             end,
         },
+    },
+    {
+        "tpope/vim-fugitive",
     },
 }
