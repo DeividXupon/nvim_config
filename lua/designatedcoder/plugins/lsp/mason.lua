@@ -23,26 +23,5 @@ return {
                 },
             },
         })
-
-        mason_lspconfig.setup({
-            -- list of servers for mason to install
-            ensure_installed = {
-                "ts_ls",
-                "html",
-                "cssls",
-                "lua_ls",
-                "emmet_language_server",
-                "phpactor",
-                "volar",
-                "intelephense",
-                "jsonls",
-                "pylsp",
-                "dockerls",
-                "yamlls",
-                "bashls",
-            },
-            -- auto-install configured servers (with lspconfig)
-            automatic_installation = true, -- not the same as ensure_installed
-        })
     end,
 }

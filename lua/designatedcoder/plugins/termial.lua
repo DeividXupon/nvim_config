@@ -30,4 +30,5 @@ return {
     vim.api.nvim_set_keymap("n", "<leader>tv3", "<cmd>:6ToggleTerm direction=vertical<CR>", { noremap = true, silent = true }),
 
     vim.api.nvim_set_keymap("n", "<leader>tf", "<cmd>:7ToggleTerm direction=float<CR>", { noremap = true, silent = true }),
+    vim.api.nvim_set_keymap("n", "<leader>tt", "<cmd>:8ToggleTerm direction=tab<CR>", { noremap = true, silent = true }),
 }

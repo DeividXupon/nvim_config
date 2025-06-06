@@ -7,8 +7,5 @@ return {
     },
     {
         'KabbAmine/vCoolor.vim',
-        config = function()
-            vim.api.nvim_set_keymap('n', '<leader>cp', '<cmd>VCoolor<cr>', { noremap = true, silent = true })
-        end,
     }
 }

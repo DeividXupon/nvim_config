@@ -99,7 +99,7 @@ return {
                     },
                 },
                 close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
-                popup_border_style = "rounded",
+                popup_border_style = "double",
                 enable_git_status = true,
                 enable_diagnostics = true,
                 open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
@@ -120,7 +120,6 @@ return {
                         { source = "filesystem" },
                         { source = "buffers" },
                         { source = "git_status" },
-                        { source = "document_symbols" },
                     },
                     content_layout = "center",
                 },
@@ -214,7 +213,17 @@ return {
                 -- see `:h neo-tree-custom-commands-global`
                 commands = {},
                 window = {
-                    position = "left",
+                    position = "float",
+                    popup = {
+                        size = {
+                            width = 40,
+                            height = "45%",
+                        },
+                        position = {
+                            row = 4,
+                            col = 4,
+                        },
+                    },
                     width = 40,
                     mapping_options = {
                         noremap = true,
@@ -430,10 +439,10 @@ return {
                     },
                 },
             })
-            vim.keymap.set("n", "<leader>et", "<Cmd>Neotree reveal left toggle<CR>")
+            vim.keymap.set("n", "<leader>et", "<Cmd>Neotree reveal float toggle<CR>")
             vim.keymap.set("n", "<leader>eb", "<Cmd>Neotree buffers float toggle<CR>")
             vim.keymap.set("n", "<leader>eg", "<Cmd>Neotree git_status float toggle<CR>")
-            vim.keymap.set("n", "<leader>ed", "<Cmd>Neotree document_symbols right toggle<CR>")
+            vim.keymap.set("n", "<leader>ed", "<Cmd>Neotree document_symbols left toggle<CR>")
         end,
     },
 }

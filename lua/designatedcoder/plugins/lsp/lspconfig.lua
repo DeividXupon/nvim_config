@@ -109,13 +109,6 @@ return {
             filetypes = { "css", "scss", "less" }, -- Restringe ao CSS/SCSS/Less
         })
 
-        -- configure emmet language server
-        -- lspconfig["emmet_language_server"].setup({
-        --     capabilities = capabilities,
-        --     on_attach = on_attach,
-        --     filetypes = { "blade" },
-        -- })
-
         lspconfig["phpactor"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
@@ -128,12 +121,6 @@ return {
             filetypes = { "php" }, -- Restringe ao PHP
         })
 
-        lspconfig["volar"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" }, -- Restringe ao Vue e JS/TS
-        })
-
         lspconfig["jsonls"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
@@ -144,6 +131,16 @@ return {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "python" }, -- Restringe ao Python
+            settings = {
+                pylsp = {
+                    plugins = {
+                        pycodestyle = {
+                            maxLineLength = 120,
+                            ignore = { "E501" },
+                        },
+                    },
+                },
+            },
         })
 
         lspconfig["dockerls"].setup({
@@ -163,7 +160,6 @@ return {
             on_attach = on_attach,
             filetypes = { "sh", "bash" }, -- Restringe ao Shell Script
         })
-
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({
             capabilities = capabilities,

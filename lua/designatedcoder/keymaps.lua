@@ -5,6 +5,20 @@ vim.g.maplocalleader = " "
 
 local keymap = vim.keymap
 
+local opts = { noremap = true, silent = true }
+
+vim.keymap.set("n", "<C-q>", "<cmd>q<CR>", opts)
+
+--resize
+keymap.set("n", "<Up>", "<cmd>resize -2<CR>", opts)
+keymap.set("n", "<Down>", "<cmd>resize +2<CR>", opts)
+keymap.set("n", "<Left>", "<cmd>vertical resize -2<CR>", opts)
+keymap.set("n", "<Right>", "<cmd>vertical resize +2<CR>", opts)
+
+-- indent mode
+keymap.set("v", "<", "<gv", opts)
+keymap.set("v", ">", ">gv", opts)
+
 local function set_dbui_colorscheme()
     require("onedark").setup({
         style = "deep",
@@ -91,3 +105,11 @@ keymap.set("n", "<leader>sb", "<cmd>Telescope buffers<CR>", { desc = "Buffers" }
 keymap.set("n", "<leader>sc", "<cmd>Telescope colorscheme<CR>", { desc = "Colorschemes" })
 ------- config toggle
 keymap.set("n", "<leader>uw", "<cmd>set wrap!<CR>", { desc = "Toggle wrap" })
+
+vim.keymap.set('n', '<leader>-', function()
+  vim.fn.system('kitty @ set-font-size -2')
+end, { desc = 'Diminuir fonte do Kitty' })
+
+vim.keymap.set('n', '<leader>+', function()
+  vim.fn.system('kitty @ set-font-size +2')
+end, { desc = 'Aumentar fonte do Kitty' })
