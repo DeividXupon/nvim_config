@@ -143,12 +143,24 @@ return {
             },
         })
 
+        lspconfig["rust_analyzer"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            cmd = { vim.fn.stdpath("data") .. "/mason/bin/rust-analyzer" },
+            filetypes = { "rust" },
+        })
+
         lspconfig["dockerls"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "dockerfile" }, -- Restringe ao Dockerfile
         })
 
+        lspconfig["tailwindcss"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            filetypes = { "javascriptreact", "typescriptreact", "html", "css", "scss" }, -- React and common frontend files
+        })
         lspconfig["yamlls"].setup({
             capabilities = capabilities,
             on_attach = on_attach,

@@ -1,5 +1,4 @@
-
-INSERT INTO blogs_list (id, name, url, active, category, method, `language`) VALUES
+INSERT INTO blogs_list (id, name, url, active, category, method, lang) VALUES
 (1, 'Cripto Facil', 'https://www.criptofacil.com/', 1, NULL, 'WordPressApi', 'pt-BR'),
 (2, 'Cointimes', 'https://cointimes.com.br/', 1, NULL, 'WordPressApi', 'pt-BR'),
 (3, 'Bit Noticias', 'https://bitnoticias.com.br', 1, NULL, 'WordPressApi', 'pt-BR'),

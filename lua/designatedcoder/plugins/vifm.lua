@@ -1,0 +1,3 @@
+return {
+    "vifm/neovim-vifm",
+}

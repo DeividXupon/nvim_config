@@ -4,7 +4,7 @@ return {
         keys = {
             { "<leader>hg",  "<cmd>DiffviewFileHistory<cr>", desc = "history git commits files" },
             { "<leader>gdo", "<cmd>DiffviewOpen<cr>",        desc = "compare diff in files git" },
-            { "<leader>gdm", "<cmd>DiffviewOpen master<cr>",        desc = "compare diff in master" },
+            { "<leader>gdp", "<cmd>DiffviewOpen production<cr>", desc = "compare diff in production" },
             { "<leader>gdc", "<cmd>DiffviewClose<cr>",       desc = "close compare diff in files git" },
             { "<leader>gdr", "<cmd>DiffviewRefresh<cr>",     desc = "refresh compare diff in files git" },
         },

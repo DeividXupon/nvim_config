@@ -99,7 +99,7 @@ return {
                     },
                 },
                 close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
-                popup_border_style = "double",
+                popup_border_style = "NC",
                 enable_git_status = true,
                 enable_diagnostics = true,
                 open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
@@ -216,12 +216,12 @@ return {
                     position = "float",
                     popup = {
                         size = {
-                            width = 40,
-                            height = "45%",
+                            width = 50,
+                            height = "100%",
                         },
                         position = {
-                            row = 4,
-                            col = 4,
+                            row = "100%",
+                            col = "100%",
                         },
                     },
                     width = 40,
@@ -237,7 +237,7 @@ return {
                         ["<2-LeftMouse>"] = "open",
                         ["<cr>"] = "open",
                         ["<esc>"] = "cancel", -- close preview or floating neo-tree window
-                        ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true, width = 0.8, height = 0.8 } },
+                        ["P"] = { "toggle_preview", config = { use_float = false, position = "right", width = 40 } },
                         -- Read `# Preview Mode` for more information
                         ["S"] = "open_split",
                         ["s"] = "open_vsplit",
@@ -439,10 +439,7 @@ return {
                     },
                 },
             })
-            vim.keymap.set("n", "<leader>et", "<Cmd>Neotree reveal float toggle<CR>")
-            vim.keymap.set("n", "<leader>eb", "<Cmd>Neotree buffers float toggle<CR>")
-            vim.keymap.set("n", "<leader>eg", "<Cmd>Neotree git_status float toggle<CR>")
-            vim.keymap.set("n", "<leader>ed", "<Cmd>Neotree document_symbols left toggle<CR>")
+            vim.keymap.set("n", "<leader>e", "<Cmd>Neotree float toggle<CR>")
         end,
     },
 }

@@ -11,9 +11,9 @@ return {
                 "php_only",
                 "json",
             })
+
         end,
         dependencies = {
-            "windwp/nvim-ts-autotag",
             "RRethy/nvim-treesitter-endwise",
             "nvim-treesitter/nvim-treesitter-textobjects",
             "nvim-treesitter/nvim-treesitter-context",
@@ -58,11 +58,8 @@ return {
                     "phpdoc",
                     "json",
                     "blade",
-                },
-                autotag = {
-                    enable = true,
-                },
-                endwise = {
+                 },
+                 endwise = {
                     enable = true,
                 },
 

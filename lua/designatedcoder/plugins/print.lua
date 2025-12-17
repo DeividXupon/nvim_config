@@ -4,6 +4,7 @@ return {
     config = function()
         require("silicon").setup({
             output = "/home/deivid/Pictures/SILICON_$year-$month-$date-$time.png",
+            theme = "OneDark",
         })
         vim.keymap.set("v", "<leader>sp", function()
             require("silicon").visualise_cmdline({

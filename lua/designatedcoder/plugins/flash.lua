@@ -3,6 +3,6 @@ return {
     event = "VeryLazy",
     opts = {},
     keys = {
-        { "<leader><space>", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash Jump" },
+       { ".", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash", noremap = true, silent = true}
     },
 }

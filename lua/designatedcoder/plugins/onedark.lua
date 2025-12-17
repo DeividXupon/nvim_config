@@ -5,7 +5,8 @@ return {
         priority = 1000,
         config = function()
             require('onedark').setup {
-                style = 'warm',
+                transparent = true,
+                style = 'darker',
             }
             require('onedark').load()
         end
@@ -13,8 +14,11 @@ return {
     {
         "Mofiqul/dracula.nvim",
         lazy = false,
-        priority = 1000,
+        priority = 100,
         config = function()
+            require("dracula").setup {
+                transparent_bg = true,
+            }
         end,
     },
 }

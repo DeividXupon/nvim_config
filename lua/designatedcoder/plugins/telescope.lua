@@ -91,18 +91,18 @@ return {
                     },
                 },
             })
-            vim.cmd([[
-                highlight TelescopeNormal guifg=#2C3035
-                highlight TelescopePromptBorder guifg=#18181a guibg=#18181a
-                highlight TelescopePromptNormal guifg=#D3486F
-                highlight TelescopePromptTitle guifg=#D3486F guibg=#222222
-                highlight TelescopePreviewTitle guifg=#D3486F guibg=#222222
-                highlight TelescopeResultsTitle guifg=#D3486F guibg=#222222
-                highlight TelescopePreviewNormal guibg=#242526
-                highlight TelescopePreviewBorder guifg=#18181a guibg=#18181a
-                highlight TelescopeResultsNormal guibg=#2c2d30
-                highlight TelescopeResultsBorder guifg=#18181a guibg=#18181a
-            ]])
+            -- vim.cmd([[
+            --     highlight TelescopeNormal guifg=#2C3035
+            --     highlight TelescopePromptBorder guifg=#18181a guibg=#18181a
+            --     highlight TelescopePromptNormal guifg=#D3486F
+            --     highlight TelescopePromptTitle guifg=#D3486F guibg=#222222
+            --     highlight TelescopePreviewTitle guifg=#D3486F guibg=#222222
+            --     highlight TelescopeResultsTitle guifg=#D3486F guibg=#222222
+            --     highlight TelescopePreviewNormal guibg=#242526
+            --     highlight TelescopePreviewBorder guifg=#18181a guibg=#18181a
+            --     highlight TelescopeResultsNormal guibg=#2c2d30
+            --     highlight TelescopeResultsBorder guifg=#18181a guibg=#18181a
+            -- ]])
             telescope.load_extension("media_files")
             telescope.load_extension("fzf")
         end,

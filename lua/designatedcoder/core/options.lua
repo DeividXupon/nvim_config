@@ -17,3 +17,7 @@ vim.filetype.add({
         [".*%.blade%.php"] = "blade",
     },
 })
+
+-- Enable transparency
+vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+vim.cmd("hi NormalFloat guibg=NONE")
