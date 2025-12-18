@@ -1,8 +1,8 @@
 return {
     {
         'navarasu/onedark.nvim',
-        lazy = false,
-        priority = 1000,
+        lazy = true,  -- changed to lazy
+        priority = 100,
         config = function()
             require('onedark').setup {
                 transparent = true,
@@ -13,7 +13,7 @@ return {
     },
     {
         "Mofiqul/dracula.nvim",
-        lazy = false,
+        lazy = true,  -- changed to lazy
         priority = 100,
         config = function()
             require("dracula").setup {

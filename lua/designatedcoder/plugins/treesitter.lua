@@ -13,13 +13,12 @@ return {
             })
 
         end,
-        dependencies = {
-            "RRethy/nvim-treesitter-endwise",
-            "nvim-treesitter/nvim-treesitter-textobjects",
-            "nvim-treesitter/nvim-treesitter-context",
-            "LiadOz/nvim-dap-repl-highlights",
-            "tree-sitter/tree-sitter-json",
-        },
+         dependencies = {
+             "RRethy/nvim-treesitter-endwise",
+             "nvim-treesitter/nvim-treesitter-context",
+             "LiadOz/nvim-dap-repl-highlights",
+             "tree-sitter/tree-sitter-json",
+         },
         config = function(_, opts)
             vim.filetype.add({
                 pattern = {
@@ -27,8 +26,7 @@ return {
                 },
             })
 
-            local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-            parser_config.blade = {
+            require("nvim-treesitter.parsers").blade = {
                 install_info = {
                     url = "https://github.com/EmranMR/tree-sitter-blade",
                     files = { "src/parser.c" },
@@ -37,32 +35,17 @@ return {
                 filetype = "blade",
             }
 
-            require("nvim-treesitter.configs").setup(opts)
-            require("nvim-treesitter.configs").setup({
-
+            local config = {
                 auto_install = true,
                 highlight = {
                     enable = true,
                     additional_vim_regex_highlighting = false,
                 },
                 indent = { enable = true },
-
-                ensure_installed = {
-                    "typescript",
-                    "lua",
-                    "query",
-                    "javascript",
-                    "php",
-                    "html",
-                    "css",
-                    "phpdoc",
-                    "json",
-                    "blade",
-                 },
-                 endwise = {
+                ensure_installed = opts.ensure_installed,
+                endwise = {
                     enable = true,
                 },
-
                 incremental_selection = {
                     enable = true,
                     keymaps = {
@@ -72,7 +55,6 @@ return {
                         node_decremental = "<leader>sd",  -- deseleciona o bloco
                     },
                 },
-
                 textobjects = {
                     select = {
                         enable = true,
@@ -90,12 +72,15 @@ return {
                             ["@class.outer"] = "<c-v>",
                         },
                         include_surrounding_whitespace = true,
-                    },
-                },
-            })
-        end,
-    },
-    {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-    },
-}
+         },
+     },
+ }
+
+             require("nvim-treesitter").setup(config)
+         end,
+     },
+     {
+         "nvim-treesitter/nvim-treesitter-textobjects",
+         lazy = true,
+     },
+ }

@@ -13,13 +13,13 @@ return {
 
     config = function(_, opts)
         local is_wsl = is_wsl()
-        local lspconfig = require("lspconfig")
 
         if not is_wsl then
             if opts.servers then
                 for server, config in pairs(opts.servers) do
                     config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-                    lspconfig[server].setup(config)
+                    vim.lsp.config(server, config)
+                    vim.lsp.enable(server)
                 end
             end
         end
@@ -89,45 +89,51 @@ return {
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
         -- configure html server
-        lspconfig["html"].setup({
+        vim.lsp.config('html', {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "html", "javascript", "typescriptreact", "blade" },
         })
+        vim.lsp.enable('html')
 
         -- configure typescript server with plugin
-        lspconfig["ts_ls"].setup({
+        vim.lsp.config('ts_ls', {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" }, -- Restringe ao TS/JS
         })
+        vim.lsp.enable('ts_ls')
 
         -- configure css server
-        lspconfig["cssls"].setup({
+        vim.lsp.config('cssls', {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "css", "scss", "less" }, -- Restringe ao CSS/SCSS/Less
         })
+        vim.lsp.enable('cssls')
 
-        lspconfig["phpactor"].setup({
+        vim.lsp.config('phpactor', {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "php" }, -- Restringe ao PHP
         })
+        vim.lsp.enable('phpactor')
 
-        lspconfig["intelephense"].setup({
+        vim.lsp.config('intelephense', {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "php" }, -- Restringe ao PHP
         })
+        vim.lsp.enable('intelephense')
 
-        lspconfig["jsonls"].setup({
+        vim.lsp.config('jsonls', {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "json", "jsonc" }, -- Restringe ao JSON
         })
+        vim.lsp.enable('jsonls')
 
-        lspconfig["pylsp"].setup({
+        vim.lsp.config('pylsp', {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "python" }, -- Restringe ao Python
@@ -142,38 +148,44 @@ return {
                 },
             },
         })
+        vim.lsp.enable('pylsp')
 
-        lspconfig["rust_analyzer"].setup({
+        vim.lsp.config('rust_analyzer', {
             capabilities = capabilities,
             on_attach = on_attach,
             cmd = { vim.fn.stdpath("data") .. "/mason/bin/rust-analyzer" },
             filetypes = { "rust" },
         })
+        vim.lsp.enable('rust_analyzer')
 
-        lspconfig["dockerls"].setup({
+        vim.lsp.config('dockerls', {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "dockerfile" }, -- Restringe ao Dockerfile
         })
+        vim.lsp.enable('dockerls')
 
-        lspconfig["tailwindcss"].setup({
+        vim.lsp.config('tailwindcss', {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "javascriptreact", "typescriptreact", "html", "css", "scss" }, -- React and common frontend files
         })
-        lspconfig["yamlls"].setup({
+        vim.lsp.enable('tailwindcss')
+        vim.lsp.config('yamlls', {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "yaml", "yml" }, -- Restringe ao YAML
         })
+        vim.lsp.enable('yamlls')
 
-        lspconfig["bashls"].setup({
+        vim.lsp.config('bashls', {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "sh", "bash" }, -- Restringe ao Shell Script
         })
+        vim.lsp.enable('bashls')
         -- configure lua server (with special settings)
-        lspconfig["lua_ls"].setup({
+        vim.lsp.config('lua_ls', {
             capabilities = capabilities,
             on_attach = on_attach,
             settings = { -- custom settings for lua
@@ -192,5 +204,6 @@ return {
                 },
             },
         })
+        vim.lsp.enable('lua_ls')
     end,
 }
