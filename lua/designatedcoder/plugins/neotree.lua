@@ -14,7 +14,7 @@ return {
         branch = "v3.x",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons",   -- not strictly required, but recommended
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim",
             { "3rd/image.nvim", opts = {} }, -- Optional image support in preview window: See `# Preview Mode` for more information
             {
@@ -66,16 +66,16 @@ return {
                     renderers = {
                         root = {
                             { "indent" },
-                            { "icon",  default = "C" },
-                            { "name",  zindex = 10 },
+                            { "icon", default = "C" },
+                            { "name", zindex = 10 },
                         },
                         symbol = {
-                            { "indent",    with_expanders = true },
+                            { "indent", with_expanders = true },
                             { "kind_icon", default = "?" },
                             {
                                 "container",
                                 content = {
-                                    { "name",      zindex = 10 },
+                                    { "name", zindex = 10 },
                                     { "kind_name", zindex = 20, align = "right" },
                                 },
                             },
@@ -99,13 +99,13 @@ return {
                     },
                 },
                 close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
-                popup_border_style = "NC",
+                popup_border_style = "rounded",
                 enable_git_status = true,
                 enable_diagnostics = true,
                 open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
                 open_files_using_relative_paths = false,
-                sort_case_insensitive = false,                                     -- used when sorting files and directories in the tree
-                sort_function = nil,                                               -- use a custom function for sorting files and directories in the tree
+                sort_case_insensitive = false, -- used when sorting files and directories in the tree
+                sort_function = nil, -- use a custom function for sorting files and directories in the tree
                 -- sort_function = function (a,b)
                 --       if a.type == b.type then
                 --           return a.path > b.path
@@ -186,22 +186,22 @@ return {
                     -- If you don't want to use these columns, you can set `enabled = false` for each of them individually
                     file_size = {
                         enabled = true,
-                        width = 12,          -- width of the column
+                        width = 12, -- width of the column
                         required_width = 64, -- min width of window required to show this column
                     },
                     type = {
                         enabled = true,
-                        width = 10,           -- width of the column
+                        width = 10, -- width of the column
                         required_width = 122, -- min width of window required to show this column
                     },
                     last_modified = {
                         enabled = true,
-                        width = 20,          -- width of the column
+                        width = 20, -- width of the column
                         required_width = 88, -- min width of window required to show this column
                     },
                     created = {
                         enabled = true,
-                        width = 20,           -- width of the column
+                        width = 20, -- width of the column
                         required_width = 110, -- min width of window required to show this column
                     },
                     symlink_target = {
@@ -216,12 +216,12 @@ return {
                     position = "float",
                     popup = {
                         size = {
-                            width = 50,
-                            height = "100%",
+                            width = 35,
+                            height = 30,
                         },
                         position = {
-                            row = "100%",
-                            col = "100%",
+                            row = 0.5,
+                            col = 0.5,
                         },
                     },
                     width = 40,
@@ -233,11 +233,11 @@ return {
                         ["<space>"] = {
                             "toggle_node",
                             nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
-                        },                  -- alter to bufeer
+                        }, -- alter to bufeer
                         ["<2-LeftMouse>"] = "open",
                         ["<cr>"] = "open",
                         ["<esc>"] = "cancel", -- close preview or floating neo-tree window
-                        ["P"] = { "toggle_preview", config = { use_float = false, position = "right", width = 40 } },
+                        ["P"] = { "toggle_preview", config = { use_float = true } },
                         -- Read `# Preview Mode` for more information
                         ["S"] = "open_split",
                         ["s"] = "open_vsplit",
@@ -334,11 +334,11 @@ return {
                         },
                     },
                     follow_current_file = {
-                        enabled = true,                     -- This will find and focus the file in the active buffer every time
+                        enabled = true, -- This will find and focus the file in the active buffer every time
                         --               -- the current file is changed while the tree is open.
-                        leave_dirs_open = true,             -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+                        leave_dirs_open = true, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
                     },
-                    group_empty_dirs = false,               -- when true, empty folders will be grouped together
+                    group_empty_dirs = false, -- when true, empty folders will be grouped together
                     hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
                     -- in whatever position is specified in window.position
                     -- "open_current",  -- netrw disabled, opening a directory opens within the
@@ -387,11 +387,11 @@ return {
                 },
                 buffers = {
                     follow_current_file = {
-                        enabled = true,          -- This will find and focus the file in the active buffer every time
+                        enabled = true, -- This will find and focus the file in the active buffer every time
                         --              -- the current file is changed while the tree is open.
                         leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
                     },
-                    group_empty_dirs = true,     -- when true, empty folders will be grouped together
+                    group_empty_dirs = true, -- when true, empty folders will be grouped together
                     show_unloaded = true,
                     window = {
                         mappings = {
@@ -439,7 +439,7 @@ return {
                     },
                 },
             })
-            vim.keymap.set("n", "<leader>e", "<Cmd>Neotree float toggle<CR>")
+            vim.keymap.set("n", "<leader>e", "<Cmd>Neotree float reveal<CR>")
         end,
     },
 }

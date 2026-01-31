@@ -1,7 +1,6 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.5",
         dependencies = {
             "nvim-lua/plenary.nvim",
             {
@@ -9,12 +8,14 @@ return {
                 build = "make",
             },
             "nvim-tree/nvim-web-devicons",
+            "nvim-treesitter/nvim-treesitter",
         },
         config = function()
             local telescope = require("telescope")
             local actions = require("telescope.actions")
             telescope.setup({
                 defaults = {
+                    treesitter = false,
                     path_display = { "truncate " },
                     layout_config = {
                         horizontal = {
@@ -52,7 +53,7 @@ return {
                         sorting_strategy = "ascending",
                     },
                     live_grep = {
-                        theme = "ivy",
+                        theme = "dropdown"
                     }, 
                     git_files = {
                         theme = nil, -- Remova o tema padrão
@@ -81,6 +82,9 @@ return {
                         },
                         sorting_strategy = "ascending",
                     },
+                    live_grep = {
+                        layout_strategy = "horizontal",
+                    },
                 },
                 extensions = {
                     media_files = {
@@ -91,18 +95,20 @@ return {
                     },
                 },
             })
-            -- vim.cmd([[
-            --     highlight TelescopeNormal guifg=#2C3035
-            --     highlight TelescopePromptBorder guifg=#18181a guibg=#18181a
-            --     highlight TelescopePromptNormal guifg=#D3486F
-            --     highlight TelescopePromptTitle guifg=#D3486F guibg=#222222
-            --     highlight TelescopePreviewTitle guifg=#D3486F guibg=#222222
-            --     highlight TelescopeResultsTitle guifg=#D3486F guibg=#222222
-            --     highlight TelescopePreviewNormal guibg=#242526
-            --     highlight TelescopePreviewBorder guifg=#18181a guibg=#18181a
-            --     highlight TelescopeResultsNormal guibg=#2c2d30
-            --     highlight TelescopeResultsBorder guifg=#18181a guibg=#18181a
-            -- ]])
+            vim.cmd([[
+                highlight TelescopeNormal guibg=#282c34 guifg=#abb2bf
+                highlight TelescopeBorder guibg=#282c34 guifg=#5c6370
+                highlight TelescopePromptBorder guibg=#21252b guifg=#61afef
+                highlight TelescopePromptNormal guibg=#21252b guifg=#abb2bf
+                highlight TelescopePromptTitle guibg=#21252b guifg=#61afef
+                highlight TelescopePreviewTitle guibg=#282c34 guifg=#61afef
+                highlight TelescopeResultsTitle guibg=#282c34 guifg=#61afef
+                highlight TelescopePreviewNormal guibg=#282c34 guifg=#abb2bf
+                highlight TelescopePreviewBorder guibg=#282c34 guifg=#5c6370
+                highlight TelescopeResultsNormal guibg=#282c34 guifg=#abb2bf
+                highlight TelescopeResultsBorder guibg=#282c34 guifg=#5c6370
+                highlight TelescopeSelection guibg=#3e4451 guifg=#abb2bf
+            ]])
             telescope.load_extension("media_files")
             telescope.load_extension("fzf")
         end,

@@ -1,7 +1,7 @@
 vim.g.copilot_no_tab_map = true
 vim.keymap.set('i', '<S-Tab>', 'copilot#Accept("\\<S-Tab>")', { expr = true, replace_keycodes = false })
 
-vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")
+vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>"); 
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "

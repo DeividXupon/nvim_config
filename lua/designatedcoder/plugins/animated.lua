@@ -23,36 +23,4 @@ return {
             end
         end,
     },
-    {
-        "anuvyklack/windows.nvim",
-        dependencies = {
-            "anuvyklack/middleclass",
-            "anuvyklack/animation.nvim",
-        },
-        config = function()
-            vim.o.winheight = 35
-            vim.o.winminheight = 0
-            vim.o.equalalways = true
-
-            require("windows").setup({
-                animation = {
-                    enable = true,
-                    duration = 150,
-                    fps = 120,
-                },
-                autowidth = {
-                    enable = true,
-                    winwidth = 65,
-                    filetype = {"NvimTree", "neo-tree", "undotree"},
-                },
-                ignore = {
-                    buftype = {
-                        "terminal",
-                        "quickfix",
-                    },
-                },
-
-            })
-        end,
-    },
 }

@@ -23,5 +23,32 @@ return {
                 },
             },
         })
+
+        mason_lspconfig.setup({
+            ensure_installed = {
+                "html",
+                "ts_ls",
+                "cssls",
+                "phpactor",
+                "intelephense",
+                "jsonls",
+                "pylsp",
+                "rust_analyzer",
+                "dockerls",
+                "tailwindcss",
+                "yamlls",
+                "bashls",
+                "lua_ls",
+            },
+        })
+
+        mason_tool_installer.setup({
+            ensure_installed = {
+                "stylua",
+                "prettierd",
+                "blade-formatter",
+                "phpstan",
+            },
+        })
     end,
 }

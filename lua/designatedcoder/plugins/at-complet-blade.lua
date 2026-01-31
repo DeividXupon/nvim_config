@@ -6,7 +6,7 @@ return {
         config = function()
             -- Configure o coc.nvim aqui, se necessário
             -- Por exemplo, se você quiser configurar o vim para o Blade
-            vim.cmd([[ let g:coc_global_extensions = ['coc-blade'] ]])
+            vim.cmd([[ let g:coc_global_extensions = ['coc-blade', 'coc-tsserver'] ]])
             -- Configurar o botão de confirmação para C-Space
             vim.cmd([[
                 inoremap <silent><expr> <C-h> coc#pum#confirm()
