@@ -96,17 +96,17 @@ return {
                 },
             })
             vim.cmd([[
-                highlight TelescopeNormal guibg=#282c34 guifg=#abb2bf
-                highlight TelescopeBorder guibg=#282c34 guifg=#5c6370
-                highlight TelescopePromptBorder guibg=#21252b guifg=#61afef
-                highlight TelescopePromptNormal guibg=#21252b guifg=#abb2bf
-                highlight TelescopePromptTitle guibg=#21252b guifg=#61afef
-                highlight TelescopePreviewTitle guibg=#282c34 guifg=#61afef
-                highlight TelescopeResultsTitle guibg=#282c34 guifg=#61afef
-                highlight TelescopePreviewNormal guibg=#282c34 guifg=#abb2bf
-                highlight TelescopePreviewBorder guibg=#282c34 guifg=#5c6370
-                highlight TelescopeResultsNormal guibg=#282c34 guifg=#abb2bf
-                highlight TelescopeResultsBorder guibg=#282c34 guifg=#5c6370
+                highlight TelescopeNormal guibg=NONE guifg=#abb2bf
+                highlight TelescopeBorder guibg=NONE guifg=#5c6370
+                highlight TelescopePromptBorder guibg=NONE guifg=#61afef
+                highlight TelescopePromptNormal guibg=NONE guifg=#abb2bf
+                highlight TelescopePromptTitle guibg=NONE guifg=#61afef
+                highlight TelescopePreviewTitle guibg=NONE guifg=#61afef
+                highlight TelescopeResultsTitle guibg=NONE guifg=#61afef
+                highlight TelescopePreviewNormal guibg=NONE guifg=#abb2bf
+                highlight TelescopePreviewBorder guibg=NONE guifg=#5c6370
+                highlight TelescopeResultsNormal guibg=NONE guifg=#abb2bf
+                highlight TelescopeResultsBorder guibg=NONE guifg=#5c6370
                 highlight TelescopeSelection guibg=#3e4451 guifg=#abb2bf
             ]])
             telescope.load_extension("media_files")

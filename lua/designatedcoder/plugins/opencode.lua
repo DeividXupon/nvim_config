@@ -7,7 +7,9 @@ return {
     },
     config = function()
         vim.g.opencode_opts = {
-            -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition" on `opencode_opts`.
+            -- Pin the server port to the instance you want Neovim to use.
+            -- (Your Desktop port 51580 isn't listening right now; 4096 is responding.)
+            port = 51580,
         }
 
         -- Required for `vim.g.opencode_opts.auto_reload`.

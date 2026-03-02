@@ -1,11 +1,25 @@
 return {
     {
-        'norcalli/nvim-colorizer.lua',
+        "norcalli/nvim-colorizer.lua",
         config = function()
-            require('colorizer').setup()
+            require("colorizer").setup()
         end,
     },
     {
-        'KabbAmine/vCoolor.vim',
-    }
+        "KabbAmine/vCoolor.vim",
+    },
+    {
+        "eero-lehtinen/oklch-color-picker.nvim",
+        event = "VeryLazy",
+        version = "*",
+        cmd = "ColorPickOklch",
+        keys = {
+            {
+                "<leader>v",
+                "<cmd>ColorPickOklch<cr>",
+                desc = "Color pick under cursor",
+            },
+        },
+        opts = {},
+    },
 }

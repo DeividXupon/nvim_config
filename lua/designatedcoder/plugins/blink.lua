@@ -161,8 +161,7 @@ return {
                     score_offset = 85, -- the higher the number, the higher the priority
                 },
                 -- https://github.com/Kaiser-Yang/blink-cmp-dictionary
-                -- In macOS to get started with a dictionary:
-                -- cp /usr/share/dict/words ~/github/dotfiles-latest/dictionaries/words.txt
+                -- On macOS you can use the built-in `/usr/share/dict/words`.
                 --
                 -- NOTE: For the word definitions make sure "wn" is installed
                 -- brew install wordnet
@@ -175,12 +174,20 @@ return {
                     max_items = 8,
                     min_keyword_length = 3,
                     opts = {
-                        dictionary_directories = { vim.fn.expand("~/github/dotfiles-latest/dictionaries") },
-                        -- Notice I'm also adding the words I add to the spell dictionary
-                        dictionary_files = {
-                            vim.fn.expand("~/github/dotfiles-latest/neovim/neobean/spell/en.utf-8.add"),
-                            vim.fn.expand("~/github/dotfiles-latest/neovim/neobean/spell/es.utf-8.add"),
-                        },
+                        dictionary_directories = { vim.fn.stdpath("config") .. "/dictionaries" },
+                        -- Include spell add-files when present (filter missing files to avoid ENOENT).
+                        dictionary_files = function()
+                            local config = vim.fn.stdpath("config")
+                            local candidates = {
+                                "/usr/share/dict/words",
+                                config .. "/spell/en.utf-8.add",
+                                config .. "/spell/es.utf-8.add",
+                            }
+
+                            return vim.tbl_filter(function(path)
+                                return vim.fn.filereadable(path) == 1
+                            end, candidates)
+                        end,
                     },
                 },
             },
